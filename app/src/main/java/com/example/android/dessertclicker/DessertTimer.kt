@@ -55,7 +55,7 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
     private lateinit var runnable: Runnable
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun startTimer() {
+    fun startTimer(){
         // Create the runnable action, which prints out a log and increments the seconds counter
         runnable = Runnable {
             secondsCount++
@@ -78,4 +78,5 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         // timer
         handler.removeCallbacks(runnable)
     }
+
 }

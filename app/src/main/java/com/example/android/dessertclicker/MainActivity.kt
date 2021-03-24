@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private var revenue = 0
     private var dessertsSold = 0
+//    private var secondCount = dessertTimer.secondsCount
 
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
@@ -79,19 +80,18 @@ class MainActivity : AppCompatActivity() {
 
         dessertTimer = DessertTimer(this.lifecycle)
 
-        // Set the TextViews to the right values
-        binding.revenue = revenue
-        binding.amountSold = dessertsSold
-
-        // Make sure the correct dessert is showing
-        binding.dessertButton.setImageResource(currentDessert.imageId)
-
         if (savedInstanceState != null) {
             revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
             dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)
             showCurrentDessert()
         }
 
+        // Set the TextViews to the right values
+        binding.revenue = revenue
+        binding.amountSold = dessertsSold
+
+        // Make sure the correct dessert is showing
+        binding.dessertButton.setImageResource(currentDessert.imageId)
     }
 
     override fun onStart() {
